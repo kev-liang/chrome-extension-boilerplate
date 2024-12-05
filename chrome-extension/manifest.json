@@ -3,8 +3,15 @@
   "manifest_version": 3,
   "name": "Insta Transcribe",
   "description": "Transcribe Instagram instantly",
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
-    "default_popup": "js/index.html",
+    "default_popup": "popup.html",
     "default_title": "React Chrome Extension"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
   }
 }

@@ -4,7 +4,15 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: "./src/index.tsx",
+    popup: "./pages/popup/Popup.tsx",
+    options: "./pages/options/Options.tsx",
+    content: "./pages/content/content.ts",
+    background: "./chrome-extension/background.ts",
+  },
+  output: {
+    path: path.join(__dirname, "dist"),
+    filename: "[name].js",
+    clean: true,
   },
   mode: "production",
   module: {
@@ -31,27 +39,26 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "./chrome-extensions/manifest.json", to: "../manifest.json" },
+        { from: "./chrome-extension/manifest.json", to: "./manifest.json" },
       ],
     }),
-    ...getHtmlPlugins(["index"]),
+    ...getHtmlPlugins([
+      { template: "./pages/popup/popup.html", name: "popup" },
+      { template: "./pages/options/options.html", name: "options" },
+    ]),
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  output: {
-    path: path.join(__dirname, "dist/js"),
-    filename: "[name].js",
-  },
 };
 
 function getHtmlPlugins(chunks) {
-  return chunks.map(
-    (chunk) =>
-      new HTMLPlugin({
-        title: "React extension",
-        filename: `${chunk}.html`,
-        chunks: [chunk],
-      })
-  );
+  return chunks.map((chunk) => {
+    const { template, name } = chunk;
+    return new HTMLPlugin({
+      template,
+      filename: `${name}.html`,
+      chunks: [name],
+    });
+  });
 }
