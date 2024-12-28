@@ -20,5 +20,6 @@
       "js": ["content.js"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "REACT_APP_BACKEND_URL": "localhost:422220"
 }

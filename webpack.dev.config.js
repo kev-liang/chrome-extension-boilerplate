@@ -39,7 +39,7 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "./chrome-extension/manifest.json", to: "./manifest.json" },
+        { from: "./chrome-extension/manifest.dev.json", to: "./manifest.json" },
       ],
     }),
     ...getHtmlPlugins([
