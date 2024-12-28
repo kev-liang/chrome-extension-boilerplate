@@ -1,22 +1,15 @@
 import ReactDOM from "react-dom/client";
 import "./popup.css"; // Optional CSS for styling
+import MessageHelper from "../../helpers/MessageHelper";
 
 function Popup() {
+  const messageHelper = MessageHelper();
   const openOptions = () => {
     chrome.runtime.openOptionsPage();
   };
 
   const sendMessage = () => {
-    chrome.runtime.sendMessage(
-      { type: "greet" }, // Message object to send
-      (response) => {
-        if (chrome.runtime.lastError) {
-          console.error(chrome.runtime.lastError.message);
-        } else {
-          console.log("Response from background:", response);
-        }
-      }
-    );
+    messageHelper.sendMessageToBackground("greet", null);
   };
 
   return (

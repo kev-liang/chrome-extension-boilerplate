@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "manifest_version": 3,
-  "name": "Insta Transcribe",
+  "name": "Youtube Thumbnail",
   "description": "Transcribe Instagram instantly",
   "background": {
     "service_worker": "background.js"

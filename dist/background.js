@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("background"),chrome.runtime.onMessage.addListener((function(e,n,o){return console.log("Message received in background:",e),"greet"===e.type?o({reply:"Hello from the background script!"}):o({reply:"Unknown message type"}),!0}))})();
