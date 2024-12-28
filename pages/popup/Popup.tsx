@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import "./popup.css"; // Optional CSS for styling
 import MessageHelper from "../../helpers/MessageHelper";
+import CONSTS from "../../helpers/consts";
 
 function Popup() {
   const messageHelper = MessageHelper();
@@ -9,7 +10,7 @@ function Popup() {
   };
 
   const sendMessage = () => {
-    messageHelper.sendMessageToBackground("greet", null);
+    messageHelper.sendMessageToActiveTab(CONSTS.SET_THUMBAIL, null);
   };
 
   return (
