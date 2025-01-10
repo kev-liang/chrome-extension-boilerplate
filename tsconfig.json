@@ -14,7 +14,10 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["chrome"]
+    "types": ["chrome"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["pages", "chrome-extension"]
 }
