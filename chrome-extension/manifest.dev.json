@@ -21,5 +21,11 @@
       "run_at": "document_idle"
     }
   ],
-  "REACT_APP_BACKEND_URL": "http://localhost:5000"
+  "oauth2": {
+    "client_id": "730536267617-rsc5mdfikjvngj6ho3i5oqetd1igvkuf.apps.googleusercontent.com",
+    "scopes": ["profile", "email"]
+  },
+  "permissions": ["identity", "identity.email", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "REACT_APP_BACKEND_URL": "https://bdd1-2601-601-a27f-ee30-4490-8e89-6edb-c774.ngrok-free.app"
 }
