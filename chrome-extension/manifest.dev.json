@@ -27,5 +27,5 @@
   },
   "permissions": ["identity", "identity.email", "storage"],
   "host_permissions": ["<all_urls>"],
-  "REACT_APP_BACKEND_URL": "https://bdd1-2601-601-a27f-ee30-4490-8e89-6edb-c774.ngrok-free.app"
+  "REACT_APP_BACKEND_URL": "https://45f6-2601-601-a27f-ee30-b04d-39bf-ebe8-40e1.ngrok-free.app"
 }

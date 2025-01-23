@@ -15,6 +15,7 @@ const GoogleRepo = () => {
     url.searchParams.append("redirect_uri", redirectUri);
     url.searchParams.append("scope", scopes.join(" "));
 
+    console.log("GOOGLE REDIRECT", url.toString());
     return url.toString();
   };
 
@@ -65,7 +66,21 @@ const GoogleRepo = () => {
     });
   };
 
-  return { getAuthCode, getUserInfo };
+  const getAuthTokenFromCode = async (code: string) => {
+    const url = `${config.REACT_APP_BACKEND_URL}/auth/google/code`;
+    const body = JSON.stringify({ code });
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    try {
+      const res = await axios.post(url, body, { headers });
+      return res;
+    } catch (err) {
+      console.error("Error getting auth token:", err);
+    }
+  };
+
+  return { getAuthCode, getUserInfo, getAuthTokenFromCode };
 };
 
 export default GoogleRepo;
